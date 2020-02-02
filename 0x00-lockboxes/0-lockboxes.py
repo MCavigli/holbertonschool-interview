@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """ Module that checks to see if all boxes are unlockable """
 
-# Box = __import__('box_class').Box
-
 def canUnlockAll(boxes):
     """ Checks if all boxes are unlockable
         Args: boxes - a list of lists
@@ -26,6 +24,7 @@ def canUnlockAll(boxes):
         return True
 
 def unlockBoxes(boxes, boxDict, boxOfKeys):
+    """ Unlocks the boxes """
     newKeys = []
     for key in boxOfKeys:
         if boxDict[key] == 'locked':
@@ -42,13 +41,6 @@ def unlockBoxes(boxes, boxDict, boxOfKeys):
     newKeys.clear()
     return boxOfKeys
 
-
-
-    
-
-
-
-
 def dictInit(box):
     """ Initializes the dictionary """
     boxDict = {}
@@ -57,9 +49,3 @@ def dictInit(box):
     boxDict[0] = 'unlocked'
 
     return boxDict
-
-def dictCheck(boxDict):
-    """ Checks if all values are unlocked """
-    if 'locked' in boxDict.values():
-        return False
-    return True
