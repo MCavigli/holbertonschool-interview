@@ -29,6 +29,9 @@ def unlockBoxes(boxes, boxDict, boxOfKeys):
     """ Unlocks the boxes """
     newKeys = []
     for key in boxOfKeys:
+        if key not in boxDict:
+            boxOfKeys.remove(key)
+            continue
         if boxDict[key] == 'locked':
             boxDict[key] = 'unlocked'
             if len(boxes[key]) == 0:
@@ -39,6 +42,9 @@ def unlockBoxes(boxes, boxDict, boxOfKeys):
     boxOfKeys.clear()
     newKeys = list(set(newKeys))
     for key in newKeys:
+        if key not in boxDict:
+            newKeys.remove(key)
+            continue
         if boxDict[key] == 'locked':
             boxOfKeys.append(key)
     newKeys.clear()
