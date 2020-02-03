@@ -37,9 +37,10 @@ def unlockBoxes(boxes, boxDict, boxOfKeys):
                 for nk in boxes[key]:
                     newKeys.append(nk)
     boxOfKeys.clear()
+    newKeys = list(set(newKeys))
     for key in newKeys:
-        boxOfKeys.append(key)
-    list(set(boxOfKeys))
+        if boxDict[key] == 'locked':
+            boxOfKeys.append(key)
     newKeys.clear()
     return boxOfKeys
 
