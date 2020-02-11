@@ -1,6 +1,9 @@
 #ifndef LISTS_H
 #define LISTS_H
-
+#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 /**
  * struct listint_s - singly linked list
  * @n: integer
@@ -23,4 +26,3 @@ listint_t *insert_node(listint_t **head, int number);
 listint_t *single_node_list(listint_t **head, int number);
 
 #endif /* LISTS_H */
-
