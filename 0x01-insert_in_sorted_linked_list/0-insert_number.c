@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "lists.h"
 
 /**
@@ -23,6 +20,7 @@ listint_t *insert_node(listint_t **head, int number)
 		return (new);
 	}
 	int flag = 0;
+
 	new = malloc(sizeof(listint_t));
 	new->n = number;
 	while (tmp->next)
