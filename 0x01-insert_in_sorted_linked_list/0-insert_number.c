@@ -1,4 +1,7 @@
 #include "lists.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 /**
  * insert_node - inserts a node into a sorted linked list
@@ -9,7 +12,7 @@
 
 listint_t *insert_node(listint_t **head, int number)
 {
-	if (!head)
+	if (!*head)
 		return (NULL);
 	listint_t *tmp = *head;
 	listint_t *new;
