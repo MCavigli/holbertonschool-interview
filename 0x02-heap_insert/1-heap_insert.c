@@ -23,9 +23,9 @@ heap_t *heap_insert(heap_t **root, int value)
 		return (newNode);
 	}
 	else if (value > newNode->n)
-		newNode->right = heap_insert(&newNode->right, value);
+		newNode->right = heap_insert(tmp->right, value);
 	else
-		newNode->left = heap_insert(&newNode->left, value);
+		newNode->left = heap_insert(tmp->left, value);
 	return (newNode);
 }
 
@@ -35,3 +35,13 @@ heap_t *heap_insert(heap_t **root, int value)
  * @value: the value of the new node
  * Return: pointer to the place to new node
  */
+
+heap_t *placement(heap_t **cn, int value)
+{
+	heap_t *tmpNode = cn;
+
+	while (tmpNode)
+	{
+		return (tmpNode);
+	}
+}
