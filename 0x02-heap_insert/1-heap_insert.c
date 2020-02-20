@@ -2,7 +2,6 @@
 
 /**
  * heap_insert - inserts a value into a Max Binary Heap
- * 
  * @root: double pointer to the root node of the Heap
  * @value: value stored in the node to be inserted
  * Return: pointer to the inserted node, or NULL on failure
@@ -13,6 +12,7 @@ heap_t *heap_insert(heap_t **root, int value)
 
 	heap_t *tmp = *root;
 	heap_t *newNode = malloc(sizeof(heap_t));
+
 	if (!newNode)
 		return (NULL);
 	newNode->n = value;
@@ -35,11 +35,3 @@ heap_t *heap_insert(heap_t **root, int value)
  * @value: the value of the new node
  * Return: pointer to the place to new node
  */
-
-// heap_t *placement(heap_t **cn, int value)
-// {
-// 	heap_t *nodeLoc = cn;
-// 	while (nodeLoc)
-// 	{
-// 	}
-// }
