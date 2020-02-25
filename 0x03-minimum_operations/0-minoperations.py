@@ -4,6 +4,8 @@ import math
 
 def minOperations(n):
 
+    if n is None or n < 2:
+        return 0
     nCopy = n
     prime_factors = []
     final_sum = 0
