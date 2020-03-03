@@ -5,7 +5,6 @@
  * @grid1: the first grid
  * @grid2: the second grid
  */
-
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 	add_piles_together(grid1, grid2);
@@ -22,7 +21,6 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
  * @grid1: first grid
  * @grid2: second grid
  */
-
 void add_piles_together(int grid1[3][3], int grid2[3][3])
 {
 	for (int i = 0; i <= 2; i++)
@@ -40,7 +38,6 @@ void add_piles_together(int grid1[3][3], int grid2[3][3])
  * @grid: grid to check
  * Return: True if grid is unstable, false if fine
  */
-
 bool grid_unstable(int grid[3][3])
 {
 	for (int i = 0; i <= 2; i++)
@@ -59,7 +56,6 @@ bool grid_unstable(int grid[3][3])
  * @grid1: grid to disperse
  * @grid2: empty grid
  */
-
 void grid_dispersal(int grid1[3][3], int grid2[3][3])
 {
 	for (int i = 0; i <= 2; i++)
@@ -87,7 +83,6 @@ void grid_dispersal(int grid1[3][3], int grid2[3][3])
  * p_grid - prints a grid
  * @grid: the grid to print
  */
-
 void p_grid(int grid[3][3])
 {
 	int i, j;
