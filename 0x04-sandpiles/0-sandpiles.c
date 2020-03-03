@@ -13,6 +13,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 		printf("=\n");
 		p_grid(grid1);
 		grid_dispersal(grid1, grid2);
+		add_piles_together(grid1, grid2);
 	}
 }
 
