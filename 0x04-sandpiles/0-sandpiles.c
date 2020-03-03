@@ -1,6 +1,4 @@
 #include "sandpiles.h"
-#include <stdbool.h>
-#include <stdio.h>
 
 /**
  * sandpiles_sum - computes the sum of two sandpiles
