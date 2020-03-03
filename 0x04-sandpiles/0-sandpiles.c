@@ -14,7 +14,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	while (grid_unstable(grid1))
 	{
 		printf("=\n");
-		print_grid(grid1);
+		p_grid(grid1);
 		grid_dispersal(grid1, grid2);
 	}
 }
@@ -83,4 +83,25 @@ void grid_dispersal(int grid1[3][3], int grid2[3][3])
 		}
 	}
 	add_piles_together(grid1, grid2);
+}
+
+/**
+ * p_grid - prints a grid
+ * @grid: the grid to print
+ */
+
+void p_grid(int grid[3][3])
+{
+	int i, j;
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (j)
+				printf(" ");
+			printf("%d", grid[i][j]);
+		}
+		printf("\n");
+	}
 }
