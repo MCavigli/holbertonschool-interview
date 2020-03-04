@@ -14,7 +14,6 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 		p_grid(grid1);
 		grid_dispersal(grid1, grid2);
 	}
-	return;
 }
 
 /**
@@ -24,9 +23,10 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
  */
 void add_piles_together(int grid1[3][3], int grid2[3][3])
 {
-	for (int i = 0; i <= 2; i++)
+	int i, j;
+	for (i = 0; i <= 2; i++)
 	{
-		for (int j = 0; j <= 2; j++)
+		for (j = 0; j <= 2; j++)
 		{
 			grid1[i][j] += grid2[i][j];
 			grid2[i][j] = 0;
@@ -41,9 +41,10 @@ void add_piles_together(int grid1[3][3], int grid2[3][3])
  */
 bool grid_unstable(int grid[3][3])
 {
-	for (int i = 0; i <= 2; i++)
+	int i, j;
+	for (i = 0; i <= 2; i++)
 	{
-		for (int j = 0; j <= 2; j++)
+		for (j = 0; j <= 2; j++)
 		{
 			if (grid[i][j] > 3)
 				return (true);
@@ -59,9 +60,10 @@ bool grid_unstable(int grid[3][3])
  */
 void grid_dispersal(int grid1[3][3], int grid2[3][3])
 {
-	for (int i = 0; i <= 2; i++)
+	int i, j;
+	for (i = 0; i <= 2; i++)
 	{
-		for (int j = 0; j <= 2; j++)
+		for (j = 0; j <= 2; j++)
 		{
 			if (grid1[i][j] > 3)
 			{
