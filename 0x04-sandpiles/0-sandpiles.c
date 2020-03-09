@@ -24,6 +24,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 void add_piles_together(int grid1[3][3], int grid2[3][3])
 {
 	int i, j;
+
 	for (i = 0; i <= 2; i++)
 	{
 		for (j = 0; j <= 2; j++)
@@ -42,6 +43,7 @@ void add_piles_together(int grid1[3][3], int grid2[3][3])
 bool grid_unstable(int grid[3][3])
 {
 	int i, j;
+
 	for (i = 0; i <= 2; i++)
 	{
 		for (j = 0; j <= 2; j++)
@@ -61,6 +63,7 @@ bool grid_unstable(int grid[3][3])
 void grid_dispersal(int grid1[3][3], int grid2[3][3])
 {
 	int i, j;
+
 	for (i = 0; i <= 2; i++)
 	{
 		for (j = 0; j <= 2; j++)
