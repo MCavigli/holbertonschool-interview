@@ -28,10 +28,16 @@ if __name__ == '__main__':
         for line in sys.stdin:
             lineCount += 1
             info = line.split()
-            totalSize += int(info[8])
 
             if info[7] in statusCodes:
                 statusCodes[info[7]] = statusCodes.get(info[7]) + 1
+            else:
+                pass
+            try:
+                totalSize += int(info[8])
+            except BaseException:
+                pass
+
             if lineCount % 10 == 0:
                 print_info(totalSize, statusCodes)
 
