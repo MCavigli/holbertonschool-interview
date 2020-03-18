@@ -30,10 +30,10 @@ if __name__ == '__main__':
             info = line.split()
             totalSize += int(info[8])
 
-            if lineCount % 10 == 0:
-                print_info(totalSize, statusCodes)
             if info[7] in statusCodes:
                 statusCodes[info[7]] = statusCodes.get(info[7]) + 1
+            if lineCount % 10 == 0:
+                print_info(totalSize, statusCodes)
 
     except KeyboardInterrupt:
         print_info(totalSize, statusCodes)
