@@ -34,9 +34,8 @@ if __name__ == '__main__':
                 print_info(totalSize, statusCodes)
             if info[7] in statusCodes:
                 statusCodes[info[7]] = statusCodes.get(info[7]) + 1
-            print_info(totalSize, statusCodes)
+        print_info(totalSize, statusCodes)
 
     except KeyboardInterrupt:
         print_info(totalSize, statusCodes)
         # raise
-
