@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-import fileinput
-from signal import signal, SIGINT
 import sys
 
 
@@ -20,7 +18,7 @@ if __name__ == '__main__':
 
     def print_info(size, codes):
         print("File size: {}".format(size))
-        for k, v in codes.items():
+        for k, v in sorted(codes.items()):
             if v != 0:
                 print("{}: {}".format(k, v))
 
