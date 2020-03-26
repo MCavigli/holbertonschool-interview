@@ -12,7 +12,10 @@ int check_cycle(listint_t *list)
 	listint_t *tort = list->next;
 	listint_t *hare = list->next->next;
 
-	while (hare && hare->next->next)
+	if (!hare)
+		return (-1);
+
+	while (hare->next->next)
 	{
 		if (hare->n == tort->n)
 			return (1);
