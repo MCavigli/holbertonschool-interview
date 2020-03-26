@@ -9,11 +9,10 @@
 
 int check_cycle(listint_t *list)
 {
+	if (!list->next || !list)
+		return (0);
 	listint_t *tort = list->next;
 	listint_t *hare = list->next->next;
-
-	if (!list)
-		return (0);
 
 	while (hare && hare->next->next)
 	{
