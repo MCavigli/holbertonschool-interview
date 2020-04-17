@@ -14,18 +14,21 @@ int slide_line(int *line, size_t size, int direction)
 	if (direction == SLIDE_LEFT)
 	{
 		slide_left(line, size);
-
+		slide_left(line, size);
 		return (1);
 	}
 	else if (direction == SLIDE_RIGHT)
 	{
-		return (2);
+		slide_right(line, size);
+		slide_right(line, size);
+		return (1);
 	}
-	return (10);
+	else
+		return (0);
 }
 
 /**
- * slideLeft - called when the array needs to be slid left
+ * slide_left - called when the array needs to be slid left
  * @line: the line to slide left
  * @size: size of line
  * Return: nothing
@@ -36,36 +39,59 @@ void slide_left(int *line, size_t size)
 	size_t i = 1;
 	size_t j = 0;
 
-	while (i < size)
+	for (; i < size; i++)
 	{
 		if (line[i] == 0)
-		{
-			i++;
 			continue;
+		if (line[j] == 0)
+		{
+			line[j] = line[i];
+			line[i] = 0;
+		}
+		else if (line[j] == line[i])
+		{
+			line[j] += line[j];
+			line[i] = 0;
 		}
 		else
 		{
-			if (line[j - 1] && line[i] == line[j - 1])
-			{
-				line[j - 1] += line[j - 1];
-				line[i] = 0;
-				j++;
-				i++;
-				continue;
-			}
-			else if (i == j)
-			{
-				i++;
-				continue;
-			}
-			else
-			{
-				line[j] = line[i];
-				line[i] = 0;
-				i++;
-				j++;
-				continue;
-			}
+			line[j + 1] = line[i];
 		}
+		j++;
+	}
+}
+
+/**
+ * slide_right - slides numbers to the right
+ * @line: the line to check
+ * @size: size of the line
+ * Return: nothing
+ */
+
+void slide_right(int *line, size_t size)
+{
+	size_t i = size - 2;
+	size_t j = size - 1;
+
+	for (; i >= 0; i--)
+	{
+		if (line[i] == 0)
+			continue;
+
+		if (line[j] == 0)
+		{
+			line[j] = line[i];
+			line[i] = 0;
+		}
+		else if (line[j] == line[i])
+		{
+			line[j] += line[j];
+			line[i] = 0;
+		}
+		else
+		{
+			line[j - 1] = line[i];
+		}
+		j--;
 	}
 }
