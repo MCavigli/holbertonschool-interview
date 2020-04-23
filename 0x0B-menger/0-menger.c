@@ -7,11 +7,12 @@
 
 void menger(int level)
 {
+	int r, i, j = 0;
+	r = pow(3, level);
+
 	if (level < 0)
 		return;
-	int r, i, j = 0;
 
-	r = pow(3, level);
 	for (; i < r; i++)
 	{
 		for (; j < r; j++)
