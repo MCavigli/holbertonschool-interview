@@ -28,7 +28,7 @@ avl_t *noder(int *array, size_t size, avl_t *parent)
 		if (size > 1)
 		{
 			newnode->left = noder(array, mid, newnode);
-			newnode->right = noder(array, size - mid - 1, newnode);
+			newnode->right = noder(array + mid + 1, size - mid - 1, newnode);
 		}
 		else
 		{
@@ -46,7 +46,7 @@ avl_t *noder(int *array, size_t size, avl_t *parent)
  * @end: end of the array
  * Return: Root of the tree
  */
-avl_t *recursive_tree(int *array, size_t start, size_t end)
+avl_t *recursive_tree(int *array, size_t start, size_t end, size_t size)
 {
 	size_t mid;
 	avl_t *root;
@@ -66,8 +66,8 @@ avl_t *recursive_tree(int *array, size_t start, size_t end)
 	root->n = array[mid];
 	root->parent = NULL;
 
-	root->left = noder(array, mid - 1, root);
-	root->right = noder(array, mid + 1, root);
+	root->left = noder(array, mid, root);
+	root->right = noder(array + mid + 1, size - mid - 1, root);
 
 	return (root);
 }
@@ -85,7 +85,7 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 	if (!array)
 		return (NULL);
 
-	root = recursive_tree(array, 0, size - 1);
+	root = recursive_tree(array, 0, size - 1, size);
 
 	return (root);
 }
