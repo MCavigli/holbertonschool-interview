@@ -48,14 +48,16 @@ avl_t *noder(int *array, size_t size, avl_t *parent)
  */
 avl_t *recursive_tree(int *array, size_t start, size_t end)
 {
+	size_t mid;
+	avl_t *root;
+
 	if (start > end)
 		return (NULL);
 
-	size_t mid = (start + end) / 2;
-
+	mid = (start + end) / 2;
 	if (mid % 2 == 0)
 		mid--;
-	avl_t *root = NULL;
+	root = NULL;
 
 	root = malloc(sizeof(avl_t));
 	if (!root)
@@ -78,9 +80,12 @@ avl_t *recursive_tree(int *array, size_t start, size_t end)
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
+	avl_t *root = NULL;
+
 	if (!array)
 		return (NULL);
-	avl_t *root = recursive_tree(array, 0, size - 1);
+
+	root = recursive_tree(array, 0, size - 1);
 
 	return (root);
 }
