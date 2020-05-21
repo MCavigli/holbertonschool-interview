@@ -7,7 +7,7 @@
  * @parent: the parent node
  * Return: Pointer to the new tree
  */
-binary_tree_t *noder(int *array, size_t size, binary_tree_t *parent)
+avl_t *noder(int *array, size_t size, avl_t *parent)
 {
 	avl_t *newnode = NULL;
 	size_t mid;
@@ -45,15 +45,17 @@ binary_tree_t *noder(int *array, size_t size, binary_tree_t *parent)
  * @end: end of the array
  * Return: Root of the tree
  */
-binary_tree_t *recursive_tree(int *array, size_t start, size_t end)
+avl_t *recursive_tree(int *array, size_t start, size_t end)
 {
 	if (start > end)
 		return (NULL);
 
 	size_t mid = (start + end) / 2;
+
 	if (mid % 2 == 0)
 		mid--;
 	avl_t *root = NULL;
+
 	root = malloc(sizeof(avl_t));
 	if (!root)
 		return (NULL);
@@ -78,7 +80,7 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 	if (!array)
 		return (NULL);
 
-	binary_tree_t *root = recursive_tree(array, 0, size - 1);
+	avl_t *root = recursive_tree(array, 0, size - 1);
 
 	return (root);
 }
