@@ -82,7 +82,7 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 {
 	avl_t *root = NULL;
 
-	if (!array)
+	if (!array || size < 1)
 		return (NULL);
 
 	root = recursive_tree(array, 0, size - 1, size);
