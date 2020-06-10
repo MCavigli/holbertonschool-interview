@@ -16,17 +16,17 @@ def rain(walls):
     rainAmount = 0
     while (i + 1 < len(walls)):
         if walls[i - 1] > walls[i] and walls[i + 1] > walls[i]:
-            rainAmount += WallCompare(walls[i - 1], walls[i + 1])
+            rainAmount += WallCompare(walls[i - 1], walls[i + 1], walls[i])
         i += 1
     return rainAmount
 
 
-def WallCompare(left, right):
+def WallCompare(left, right, mid):
     """
     Finds the shortest wall
     """
 
     if left < right:
-        return left
+        return left - mid
     else:
-        return right
+        return right - mid
