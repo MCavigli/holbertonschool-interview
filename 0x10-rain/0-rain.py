@@ -10,7 +10,7 @@ def rain(walls):
     @walls: a list of non-negative integers
     """
 
-    if not walls or len(walls) < 3:
+    if not walls or len(walls) < 3 or type(walls) != list:
         return 0
     i = 1
     rainAmount = 0
