@@ -1,7 +1,15 @@
 #!/usr/bin/python3
+"""
+Calculates how much rainfall
+"""
 
 
 def rain(walls):
+    """
+    Moves through @walls to calculate rainfall
+    @walls: a list of non-negative integers
+    """
+
     if not walls or len(walls) < 3:
         return 0
     i = 1
@@ -14,6 +22,10 @@ def rain(walls):
 
 
 def WallCompare(left, right):
+    """
+    Finds the shortest wall
+    """
+
     if left < right:
         return left
     else:
