@@ -12,14 +12,17 @@ async function sw(id) {
 		if (err) {
 			console.log(err);
 		} else {
-			for (const chars in JSON.parse(body).characters) {
-				const promise = new Promise(function (res, rej) {
-					if (err) {
-						console.log(err);
-					} else {
-						resolve(JSON.parse(chars));
-					}
+			for (const chars of JSON.parse(body).characters) {
+				const promise = new Promise(function (resolve, reject) {
+					request(chars, function (err, response, body) {
+						if (err) {
+							console.log(err);
+						} else {
+							resolve(JSON.parse(body).name);
+						}
+					});
 				});
+				console.log(await promise);
 			};
 		}
 	});
