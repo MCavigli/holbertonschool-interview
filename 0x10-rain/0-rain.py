@@ -12,21 +12,14 @@ def rain(walls):
 
     if not walls or len(walls) < 3 or type(walls) != list:
         return 0
-    i = 1
     rainAmount = 0
-    while (i + 1 < len(walls)):
-        if walls[i - 1] > walls[i] and walls[i + 1] > walls[i]:
-            rainAmount += WallCompare(walls[i - 1], walls[i + 1], walls[i])
-        i += 1
+
+    for i in range(1, len(walls) - 1):
+        highL = walls[i]
+        for j in range(i):
+            highL = max(highL, walls[j])
+        highR = walls[i]
+        for j in range(i + 1, len(walls)):
+            highR = max(highR, walls[j])
+        rainAmount += (min(highL, highR) - walls[i])
     return rainAmount
-
-
-def WallCompare(left, right, mid):
-    """
-    Finds the shortest wall
-    """
-
-    if left < right:
-        return left - mid
-    else:
-        return right - mid
