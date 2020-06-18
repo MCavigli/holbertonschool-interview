@@ -18,7 +18,7 @@ void swap(int *a, int *b)
  * @start: where to start from
  * @end: where to end
  */
-void siftDown(int *array, int start, int end)
+void siftDown(int *array, int start, int end, int size)
 {
 	int root = start;
 	int child;
@@ -33,6 +33,7 @@ void siftDown(int *array, int start, int end)
 		if (array[root] < array[child])
 		{
 			swap(&array[root], &array[child]);
+			print_array(array, size);
 			root = child;
 		}
 		else
@@ -55,15 +56,14 @@ void heap_sort(int *array, size_t size)
 
 	while (start >= 0)
 	{
-		siftDown(array, start, size - 1);
-		print_array(array, size);
+		siftDown(array, start, size - 1, size);
 		start -= 1;
 	}
 	while (end > 0)
 	{
 		swap(&array[end], &array[0]);
-		end -= 1;
-		siftDown(array, 0, end);
 		print_array(array, size);
+		end -= 1;
+		siftDown(array, 0, end, size);
 	}
 }
