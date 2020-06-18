@@ -54,7 +54,7 @@ void heap_sort(int *array, size_t size)
 	int start = (size - 2) / 2;
 	int end = size - 1;
 
-	if (size < 2)
+	if (size < 2 || !array)
 		return;
 
 	while (start >= 0)
