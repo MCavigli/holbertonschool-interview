@@ -17,6 +17,7 @@ void swap(int *a, int *b)
  * @array: the array
  * @start: where to start from
  * @end: where to end
+ * @size: size of array
  */
 void siftDown(int *array, int start, int end, int size)
 {
@@ -43,7 +44,7 @@ void siftDown(int *array, int start, int end, int size)
 	}
 }
 /**
- * heap_sort: sorts an array using sift-down heap sort algorithm
+ * heap_sort - sorts an array using sift-down heap sort algorithm
  * @array: array to sort
  * @size: size of the array
  * Return: sorted array
