@@ -1,5 +1,11 @@
 #include "search_algos.h"
 
+/**
+ * print_array - Prints the array
+ * @array: pointer to array
+ * @left: starting point
+ * @right: ending point
+ */
 void print_array(int *array, int left, int right)
 {
 	int i = left;
@@ -18,6 +24,7 @@ void print_array(int *array, int left, int right)
  * @right: size of the smaller array
  * @value: value to search for
  * @left: the index
+ * Return: index of value, -1 on failure
  */
 int find_value(int *array, int right, int value, int left)
 {
@@ -27,7 +34,11 @@ int find_value(int *array, int right, int value, int left)
 
 		print_array(array, left, right);
 		if (array[mid] == value)
+		{
+			if (array[mid - 1] == value)
+				return (find_value(array, mid - 1, value, 1));
 			return (mid);
+		}
 		if (array[mid] > value)
 		{
 			return (find_value(array, mid - 1, value, 1));
