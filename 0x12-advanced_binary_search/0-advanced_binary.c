@@ -11,12 +11,12 @@ void print_array(int *array, int left, int right)
 	int i = left;
 
 	printf("Searching in array:");
-	while (i <= right)
+	while (i < right)
 	{
-		printf(" %i", array[i]);
+		printf(" %i,", array[i]);
 		i++;
 	}
-	printf("\n");
+	printf(" %i\n", array[i]);
 }
 /**
  * find_value - recursive call to find value position
