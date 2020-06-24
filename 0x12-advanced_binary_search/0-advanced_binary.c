@@ -26,7 +26,7 @@ void print_array(int *array, int left, int right)
  * @left: the index
  * Return: index of value, -1 on failure
  */
-int find_value(int *array, int right, int value, int left)
+int find_value(int *array, int left, int right, int value)
 {
 	if (right >= left)
 	{
@@ -36,16 +36,16 @@ int find_value(int *array, int right, int value, int left)
 		if (array[mid] == value)
 		{
 			if (array[mid - 1] == value)
-				return (find_value(array, mid - 1, value, 1));
+				return (find_value(array, left, mid - 1, value));
 			return (mid);
 		}
 		if (array[mid] > value)
 		{
-			return (find_value(array, mid - 1, value, left));
+			return (find_value(array, left, mid - 1, value));
 		}
-		else if (array[mid] < value)
+		else
 		{
-			return (find_value(array, right, value, mid + 1));
+			return (find_value(array, mid + 1, right, value));
 		}
 	}
 	return (-1);
@@ -65,6 +65,7 @@ int advanced_binary(int *array, size_t size, int value)
 
 	if (!array)
 		return (-1);
-	result = find_value(array, size - 1, value, 0);
+	result = find_value(array, 0, size - 1, value);
+
 	return (result);
 }
