@@ -41,7 +41,7 @@ int find_value(int *array, int right, int value, int left)
 		}
 		if (array[mid] > value)
 		{
-			return (find_value(array, mid - 1, value, 1));
+			return (find_value(array, mid - 1, value, left));
 		}
 		else if (array[mid] < value)
 		{
