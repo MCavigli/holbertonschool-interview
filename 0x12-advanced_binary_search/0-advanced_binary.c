@@ -61,7 +61,10 @@ int find_value(int *array, int right, int value, int left)
 
 int advanced_binary(int *array, size_t size, int value)
 {
-	int result = find_value(array, size - 1, value, 0);
+	int result;
 
+	if (!array)
+		return (-1);
+	result = find_value(array, size - 1, value, 0);
 	return (result);
 }
