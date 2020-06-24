@@ -36,12 +36,12 @@ int find_value(int *array, int left, int right, int value)
 		if (array[mid] == value)
 		{
 			if (array[mid - 1] == value)
-				return (find_value(array, left, mid - 1, value));
+				return (find_value(array, left, mid, value));
 			return (mid);
 		}
 		if (array[mid] > value)
 		{
-			return (find_value(array, left, mid - 1, value));
+			return (find_value(array, left, mid, value));
 		}
 		else
 		{
