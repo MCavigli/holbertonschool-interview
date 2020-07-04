@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+''' Module that has code to count number of words in hot titles on Reddit '''
 import requests
 
 
