@@ -1,6 +1,4 @@
 #include "binary_trees.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * heapIt - heapifies the node through the tree
