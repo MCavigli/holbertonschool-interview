@@ -43,12 +43,13 @@ void heapIt(heap_t *tree)
  */
 binary_tree_t *findMin(heap_t *node)
 {
-	if (!node)
-		return (0);
 	heap_t *current = node;
 	heap_t *l = findMin(node->left);
 	heap_t *r = findMin(node->right);
 	int res = node->n;
+
+	if (!node)
+		return (0);
 
 	if (l->n < res)
 		current = l;
@@ -84,7 +85,6 @@ int getTreeSize(heap_t *root)
 int heap_extract(heap_t **root)
 {
 	heap_t *lastNode;
-	int treeSize;
 	int currentData;
 
 	if (!*root)
@@ -96,7 +96,6 @@ int heap_extract(heap_t **root)
 		free(*root);
 		return (currentData);
 	}
-	treeSize = getTreeSize(*root);
 	lastNode = findMin(*root);
 	(*root)->n = lastNode->n;
 	free(lastNode);
