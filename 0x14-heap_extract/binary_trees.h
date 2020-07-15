@@ -20,4 +20,7 @@ typedef struct binary_tree_s binary_tree_t;
 typedef struct binary_tree_s heap_t;
 
 int heap_extract(heap_t **root);
+int getTreeSize(heap_t *root);
+binary_tree_t *findMin(heap_t *root);
+void heapIt(heap_t *tree);
 #endif /* BINARY_TREES_H */
