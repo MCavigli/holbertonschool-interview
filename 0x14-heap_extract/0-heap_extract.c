@@ -44,17 +44,11 @@ void heapIt(heap_t *tree)
 binary_tree_t *findMin(heap_t *node)
 {
 	heap_t *current = node;
-	heap_t *l = findMin(node->left);
-	heap_t *r = findMin(node->right);
-	int res = node->n;
 
-	if (!node)
-		return (0);
-
-	if (l->n < res)
-		current = l;
-	if (r->n < res)
-		current = r;
+	while (current->left)
+	{
+		current = current->left;
+	}
 	return (current);
 }
 
