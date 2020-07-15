@@ -16,17 +16,15 @@ void heapIt(heap_t *tree)
 	while (node->left)
 	{
 		bigNode = node->left;
-		if (node->right)
+		if (node->right && node->n < node->right->n
+		    && node->right->n > node->left->n)
 		{
-			if (node->n < node->right->n && node->right->n > node->left->n)
-			{
-				tmp = node->right->n;
-				node->right->n = node->n;
-				node->n = tmp;
-				bigNode = node->right;
-			}
+			tmp = node->right->n;
+			node->right->n = node->n;
+			node->n = tmp;
+			bigNode = node->right;
 		}
-		if (node->n < node->left->n)
+		else if (node->n < node->left->n)
 		{
 			tmp = node->left->n;
 			node->left->n = node->n;
@@ -81,18 +79,26 @@ int heap_extract(heap_t **root)
 	heap_t *lastNode;
 	int currentData;
 
-	if (!*root)
+	if (!*root || !root)
 		return (0);
 
-	currentData = (*root)->n;
 	if (!(*root)->left && !(*root)->right)
 	{
 		free(*root);
-		return (currentData);
+		return ((*root)->n);
 	}
+	currentData = (*root)->n;
 	lastNode = findMin(*root);
+	if (lastNode->parent)
+	{
+		if (lastNode->parent->left == lastNode)
+			lastNode->parent->left = NULL;
+		else
+			lastNode->parent->right = NULL;
+	}
 	(*root)->n = lastNode->n;
 	free(lastNode);
 	heapIt(*root);
+
 	return (currentData);
 }
