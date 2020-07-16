@@ -16,8 +16,7 @@ void heapIt(heap_t *tree)
 	while (node->left)
 	{
 		bigNode = node->left;
-		if (node->right && node->n < node->right->n
-		    && node->right->n > node->left->n)
+		if (node->right && node->n < node->right->n && node->right->n > node->left->n)
 		{
 			tmp = node->right->n;
 			node->right->n = node->n;
@@ -78,20 +77,14 @@ binary_tree_t *findMin(heap_t *node, int treeSize)
  * Return: number of nodes in tree
  */
 
-int getTreeSize(heap_t *root)
+int getTreeSize(binary_tree_t *root)
 {
-	int l_height = 0;
-	int r_height = 0;
+	size_t height_l;
+	size_t height_r;
 
-	if (!root)
-		return (0);
-	l_height = getTreeSize(root->left);
-	r_height = getTreeSize(root->right);
-
-	if (l_height > r_height)
-		return (l_height + 1);
-	else
-		return (r_height + 1);
+	height_l = tree->left ? 1 + _height(tree->left) : 0;
+	height_r = tree->right ? 1 + _height(tree->right) : 0;
+	return (height_l > height_r ? height_l : height_r);
 }
 
 /**
