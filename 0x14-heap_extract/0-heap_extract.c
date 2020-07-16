@@ -88,11 +88,9 @@ int getTreeSize(heap_t *root)
 
 	if (!root)
 		return (0);
-	else
-	{
-		l_height = getTreeSize(root->left);
-		r_height = getTreeSize(root->right);
-	}
+	l_height = getTreeSize(root->left);
+	r_height = getTreeSize(root->right);
+
 	if (l_height > r_height)
 		return (l_height + 1);
 	else
