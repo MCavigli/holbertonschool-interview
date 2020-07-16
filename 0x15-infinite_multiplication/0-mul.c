@@ -19,10 +19,10 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 	{
 		printf("Error\n");
-		exit (98);
+		exit(98);
 	}
-        argLen1 = strlen(argv[1]);
-        argLen2 = strlen(argv[2]);
+	argLen1 = strlen(argv[1]);
+	argLen2 = strlen(argv[2]);
 
 	product = calloc(argLen1 + argLen2, sizeof(*product));
 
@@ -37,16 +37,20 @@ int main(int argc, char *argv[])
 		for (j = argLen2 - 1; j >= 0; j--)
 		{
 			n2 = argv[2][j] - '0';
-			sum = n1 * n2 + product[i + j] + c;
+			sum = ((n1 * n2) + (product[i + j])) + c;
 			product[i + j] = sum % 10;
-			c = sum/10;
+			c = sum / 10;
 			i_n2++;
 		}
 		if (c > 0)
 			product[i_n1 + i_n2] += c;
 		i_n1++;
 	}
-	i = product[0] == 0 ? 1 : 0;
+	if (product[0] == 0)
+		i = 1;
+	else
+		i = 0;
+
 	while (i < argLen1 + argLen2)
 	{
 		printf("%d", product[i]);
