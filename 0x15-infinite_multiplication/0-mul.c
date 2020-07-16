@@ -13,7 +13,6 @@
 int main(int argc, char *argv[])
 {
 	int argLen1, argLen2, c, n1, n2, i, j, i_n1, i_n2;
-	int i_n1, i_n2;
 	int *product;
 
 	if (argc != 3)
@@ -46,10 +45,10 @@ int main(int argc, char *argv[])
 	i = strlen((char *)product);
 	while (i >= 0)
 	{
-		printf("%d", product[i]);
+		_putchar(product[i]);
 		i--;
 	}
-	printf("\n");
+	_putchar('\n');
 	free(product);
 	return (1);
 }
