@@ -37,6 +37,7 @@ void heapIt(heap_t *tree)
 /**
  * findMin - finds the smallest node
  * @node: root of tree
+ * @treeSize: size of the tree
  * Return: Value of smallest node
  */
 binary_tree_t *findMin(heap_t *node, int treeSize)
