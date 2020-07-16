@@ -45,10 +45,10 @@ int main(int argc, char *argv[])
 	i = strlen((char *)product);
 	while (i >= 0)
 	{
-		_putchar(product[i]);
+		printf("%d", product[i]);
 		i--;
 	}
-	_putchar('\n');
+	printf("\n");
 	free(product);
 	return (1);
 }
