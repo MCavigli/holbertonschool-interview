@@ -14,7 +14,7 @@ listint_t *find_listint_loop(listint_t *head)
 	if (!head || !head->next || !head->next->next)
 		return (NULL);
 
-	for (; slow; slow = slow->next, fast = fast->next->next)
+	for (; slow && fast->next->next; slow = slow->next, fast = fast->next->next)
 	{
 		if (slow->n == fast->n)
 			return (slow);
