@@ -20,7 +20,13 @@ listint_t *find_listint_loop(listint_t *head)
 	for (; slow && fast->next; slow = slow->next, fast = fast->next->next)
 	{
 		if (slow->n == fast->n)
-			return (slow);
+			break;
+	}
+	if (slow->n == fast->n)
+	{
+		for (slow = head; slow->n != fast->n; slow = slow->next, fast = fast->next)
+			;
+		return (fast);
 	}
 	return (NULL);
 }
