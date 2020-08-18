@@ -1,6 +1,22 @@
 #include "sort.h"
 
 /**
+ * printTime - prints a collection of statements
+ * @LA: the left subarray
+ * @n1: the position of the left subarray
+ * @RA: the right subarray
+ * @n2: the position of the right subarray
+ */
+void printTime(int LA[], int n1, int RA[], int n2)
+{
+	printf("Merging...\n");
+	printf("[left]: ");
+	print_array(LA, n1);
+	printf("[right]: ");
+	print_array(RA, n2);
+}
+
+/**
  * merge - merges to subarrays of @array
  * @array: the pointer to the array
  * @left: the leftmost point of the array
@@ -19,12 +35,8 @@ void merge(int *array, int left, int middle, int right)
 		LeftArray[i] = array[i + left];
 	for (j = 0; j < n2; j++)
 		RightArray[j] = array[j + middle + 1];
-	printf("Merging...\n");
-	printf("[left]: ");
-	print_array(LeftArray, n1);
-	printf("[right]: ");
-	print_array(RightArray, n2);
-	i = 0, j = 0, k = 1;
+	printTime(LeftArray, n1, RightArray, n2);
+	i = 0, j = 0, k = left;
 	while (i < n1 && j < n2)
 	{
 		if (LeftArray[i] <= RightArray[j])
@@ -65,7 +77,6 @@ void mergeSort(int *array, int left, int right)
 {
 	int middle;
 
-	printf("left: %d, right: %d\n", left, right);
 	if (left < right)
 	{
 		middle = (left + right - 1) / 2;
@@ -83,8 +94,8 @@ void mergeSort(int *array, int left, int right)
  */
 void merge_sort(int *array, size_t size)
 {
-	int left = array[0];
-	int right = array[size - 1];
+	int left = 0;
+	int right = size - 1;
 
 	if (array && size > 1)
 		mergeSort(array, left, right);
