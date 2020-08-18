@@ -12,14 +12,17 @@ void merge(int *array, int left, int middle, int right)
 	int i, j, k;
 	int n1 = middle - left + 1;
 	int n2 = right - middle;
-	int LeftArray[n1];
-	int RightArray[n2];
+	int LeftArray[n1], RightArray[n2];
 
 	for (i = 0; i < n1; i++)
-		LeftArray[i] = array[i + 1];
+		LeftArray[i] = array[i + left];
 	for (j = 0; j < n2; j++)
 		RightArray[j] = array[j + middle + 1];
-
+	printf("Merging...\n");
+	printf("[left]: ");
+	print_array(LeftArray, n1);
+	printf("[right]: ");
+	print_array(RightArray, n2);
 	i = 0, j = 0, k = 1;
 	while (i < n1 && j < n2)
 	{
@@ -47,6 +50,8 @@ void merge(int *array, int left, int middle, int right)
 		j++;
 		k++;
 	}
+	printf("[Done]: ");
+	print_array(&array[left], n1 + n2);
 }
 
 /**
@@ -61,7 +66,7 @@ void mergeSort(int *array, int left, int right)
 
 	if (left < right)
 	{
-		middle = 1 + (right - 1) / 2;
+		middle = left + (right - left) / 2;
 		mergeSort(array, left, middle);
 		mergeSort(array, middle + 1, right);
 		merge(array, left, middle, right);
