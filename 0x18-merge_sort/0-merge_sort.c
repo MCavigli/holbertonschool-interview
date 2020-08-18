@@ -12,6 +12,7 @@ void merge(int *array, int left, int middle, int right)
 	int i, j, k;
 	int n1 = middle - left + 1;
 	int n2 = right - middle;
+	#pragma GCC diagnostic ignored "-Wvla"
 	int LeftArray[n1], RightArray[n2];
 
 	for (i = 0; i < n1; i++)
@@ -64,9 +65,10 @@ void mergeSort(int *array, int left, int right)
 {
 	int middle;
 
+	printf("left: %d, right: %d\n", left, right);
 	if (left < right)
 	{
-		middle = left + (right - left) / 2;
+		middle = (left + right - 1) / 2;
 		mergeSort(array, left, middle);
 		mergeSort(array, middle + 1, right);
 		merge(array, left, middle, right);
@@ -82,7 +84,8 @@ void mergeSort(int *array, int left, int right)
 void merge_sort(int *array, size_t size)
 {
 	int left = array[0];
-	int right = array[size];
+	int right = array[size - 1];
 
-	mergeSort(array, left, right);
+	if (array && size > 1)
+		mergeSort(array, left, right);
 }
