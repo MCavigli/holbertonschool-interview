@@ -13,7 +13,9 @@ def makeChange(coins, total):
     coins.sort(reverse=True)
     for num in coins:
         currentNum = num
+        print("*")
         print("CurrentNum: ", currentNum)
+        print("newTotal: ", newTotal)
         while (currentNum <= newTotal):
             print("newTotal at beginning of while: ", newTotal)
             print("count at beginning of while: ", count)
@@ -25,7 +27,7 @@ def makeChange(coins, total):
     print("RETURNING")
     print("**************")
     print()
-    if currentNum is 0:
+    if newTotal is 0:
         return (count)
     else:
         return (-1)
