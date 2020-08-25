@@ -22,4 +22,10 @@ def makeChange(coins, total):
             print("newTotal at end of while: ", newTotal)
             print("count at end of while: ", count)
         print("***Exited while loop***")
-    return (count)
+    print("RETURNING")
+    print("**************")
+    print()
+    if currentNum is 0:
+        return (count)
+    else:
+        return (-1)
