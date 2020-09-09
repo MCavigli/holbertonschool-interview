@@ -7,9 +7,9 @@
  */
 void radix_sort(int *array, size_t size)
 {
-	int exp;
-	int max = getMax(array, size);
+	int exp, max;
 
+	max = getMax(array, size);
 	for (exp = 1; max / exp > 0; exp *= 10)
 	{
 		countSort(array, size, exp);
@@ -31,7 +31,7 @@ int getMax(int *array, size_t size)
 	for (i = 0; i < size; i++)
 	{
 		if (array[i] > max)
-			max = array[0];
+			max = array[i];
 	}
 	return (max);
 }
@@ -42,10 +42,10 @@ int getMax(int *array, size_t size)
  * @size: size of the array
  * @exp: digit to count around
  */
-void countSort(int *array, size_t size, int exp)
+void countSort(int *array, int size, int exp)
 {
-	int output[size];
-	size_t i;
+	int *output = malloc(sizeof(int) * size);
+	int i;
 	int count[10] = {0};
 
 	for (i = 0; i < size; i++)
@@ -59,4 +59,5 @@ void countSort(int *array, size_t size, int exp)
 	}
 	for (i = 0; i < size; i++)
 		array[i] = output[i];
+	free(output);
 }
