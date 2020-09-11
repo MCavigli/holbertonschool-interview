@@ -46,10 +46,12 @@ int getMax(int *array, size_t size)
  */
 void countSort(int *array, int size, int exp)
 {
-	int output[size];
+	int *output = malloc(sizeof(int) * size);
 	int i;
 	int count[10] = {0};
 
+	if (!output)
+		return;
 	for (i = 0; i < size; i++)
 		count[(array[i] / exp) % 10]++;
 	for (i = 1; i < 10; i++)
@@ -61,4 +63,5 @@ void countSort(int *array, int size, int exp)
 	}
 	for (i = 0; i < size; i++)
 		array[i] = output[i];
+	free(output);
 }
