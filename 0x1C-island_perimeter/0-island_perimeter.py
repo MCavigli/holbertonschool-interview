@@ -5,6 +5,7 @@ Finds the perimiter of an island.
 
 
 def island_perimeter(grid):
+    """ Returns the perimiter of @grid"""
     pm = 0
     for x in range(len(grid)):
         for y in range(len(grid[x])):
