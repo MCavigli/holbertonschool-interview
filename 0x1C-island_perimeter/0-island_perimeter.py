@@ -3,6 +3,7 @@
 Finds the perimiter of an island.
 """
 
+
 def island_perimeter(grid):
     pm = 0
     for x in range(len(grid)):
