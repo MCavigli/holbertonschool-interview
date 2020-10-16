@@ -12,7 +12,7 @@ def pascal_triangle(n):
     for i in range(0, n):
         for j in range(i + 1):
             if (j < i):
-                if (i <= 0):
+                if (j <= 0):
                     lst[i].append(1)
                 else:
                     lst[i].append(lst[i - 1][j] + lst[i - 1][j - 1])
