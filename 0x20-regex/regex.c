@@ -10,7 +10,7 @@ int regex_match(char const *str, char const *pattern)
 {
 	if (!*pattern)
 	{
-		return (!*str);
+		return (!*pattern);
 	}
 	if (*(pattern + 1) == '*')
 	{
