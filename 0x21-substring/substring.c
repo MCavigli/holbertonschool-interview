@@ -12,7 +12,7 @@
 
 int *find_substring(char const *s, char const **words, int nb_words, int *n)
 {
-	char *tmp, *p = NULL;
+	char *tmp = NULL, *p = NULL;
 	int sleng = strlen(s);
 	int *marker;
 	int diclen = 0, count = 0;
