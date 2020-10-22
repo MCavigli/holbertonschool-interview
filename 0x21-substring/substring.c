@@ -32,23 +32,23 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 				p = strstr(tmp + k, words[j]);
 				if (p != NULL && ((p - tmp) % regwlen) == 0)
 					break;
-				else if (NULL != p)
+				else if (p != NULL)
 				{
 					k = p - tmp + 1;
 					p = NULL;
 				}
-				else if (NULL == p)
+				else if (p == NULL)
 					goto nextseg;
 			}
-			if (NULL != p)
+			if (p != NULL)
 				memset(p, '.', regwlen);
 			else
 				goto nextseg;
 		}
 		if (sleng != 0 && diclen != 0)
 			marker[count++] = i;
-	nextseg:
-		i++;
+nextseg:
+	i++;
 	}
 	*n = count;
 	return (marker);
