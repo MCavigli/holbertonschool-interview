@@ -12,22 +12,22 @@
 
 int *find_substring(char const *s, char const **words, int nb_words, int *n)
 {
-	char *tmp;
+	char *tmp, *p = NULL;
 	int sleng = strlen(s);
 	int *marker;
 	int diclen = 0, count = 0;
-	char *p = NULL;
 	int regwlen = strlen(words[0]);
+	int i, j, k;
 
 	diclen = regwlen * nb_words;
 	tmp = calloc((diclen + 1), sizeof(char));
 	marker = calloc((sleng + 1), sizeof(int));
-	for (int i = 0; i <= sleng - diclen;)
+	for (i = 0; i <= sleng - diclen;)
 	{
 		strncpy(tmp, &s[i], diclen);
-		for (int j = 0; j < nb_words; j++)
+		for (j = 0; j < nb_words; j++)
 		{
-			for (int k = 0; k < diclen;)
+			for (k = 0; k < diclen;)
 			{
 				p = strstr(tmp + k, words[j]);
 				if (p != NULL && ((p - tmp) % regwlen) == 0)
