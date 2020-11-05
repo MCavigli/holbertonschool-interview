@@ -30,7 +30,7 @@ def isWinner(x, nums):
         return None
     if min(nums) < 0:
         return None
-    lastnum = len(nums)
+    lastnum = len(nums) - 1
     firstnum = nums[0]
     primes = getPrime(firstnum, lastnum)
     if primes is None:
