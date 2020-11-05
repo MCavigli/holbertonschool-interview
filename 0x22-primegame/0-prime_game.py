@@ -9,6 +9,8 @@ def getPrime(start, end):
     Gets prime numbers
     '''
 
+    if end < 1:
+        return None
     count = [0] * end
     counter = 0
     for i in range(start, end):
@@ -30,7 +32,7 @@ def isWinner(x, nums):
         return None
     if min(nums) < 0:
         return None
-    lastnum = len(nums) - 1
+    lastnum = len(nums)
     firstnum = nums[0]
     primes = getPrime(firstnum, lastnum)
     if primes is None:
