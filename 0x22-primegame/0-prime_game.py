@@ -18,8 +18,8 @@ def getPrime(start, end):
             for j in range(2, i):
                 if(i % j == 0):
                     break
-            else:
-                count[counter] = i
+        else:
+            count[counter] = i
     return count
 
 
