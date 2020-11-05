@@ -28,6 +28,8 @@ def isWinner(x, nums):
     
     if x < 1 or nums is None:
         return None
+    if min(nums) < 0:
+        return None
     lastnum = len(nums)
     firstnum = nums[0]
     primes = getPrime(firstnum, lastnum)
