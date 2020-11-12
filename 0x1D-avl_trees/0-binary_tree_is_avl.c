@@ -52,7 +52,9 @@ int get_tree_height(const binary_tree_t *t)
  */
 int use_min_max(const binary_tree_t *t, int min, int max)
 {
-	if (!t || t->n < min || t->n > max)
+	if (!t)
+		return (1);
+	if (t->n < min || t->n > max)
 		return (0);
 	if (use_min_max(t->left, min, t->n - 1) &&
 		use_min_max(t->right, t->n + 1, max))
