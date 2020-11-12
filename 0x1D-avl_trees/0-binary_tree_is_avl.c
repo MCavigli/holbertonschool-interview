@@ -55,7 +55,7 @@ int use_min_max(const binary_tree_t *t, int min, int max)
 	if (!t || t->n < min || t->n > max)
 		return (0);
 	return (use_min_max(t->left, min, t->n - 1) &&
-			use_min_max(t->right, tree->n + 1, max));
+			use_min_max(t->right, t->n + 1, max));
 }
 
 /**
