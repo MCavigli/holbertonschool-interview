@@ -44,6 +44,34 @@ int get_tree_height(const binary_tree_t *t)
 }
 
 /**
+ * use_min_max - another check if a tree is a binary search tree
+ * @t: the tree
+ * @min: the minimum integer
+ * @max: the maximum integer
+ * Return: 1 if tree, 0 if not or NULL
+ */
+int use_min_max(const binary_tree_t *t, int min, int max)
+{
+	if (!t || t->n < min || t->n > max)
+		return (0);
+	return (use_min_max(t->left, min, t->n - 1) &&
+			use_min_max(t->right, tree->n + 1, max));
+}
+
+/**
+ * is_bst - checks if a tree is a binary search tree
+ * @t: the tree to check
+ * Return: 1 if tree, 0 if not or NULL
+ */
+int is_bst(const binary_tree_t *t)
+{
+	if (use_min_max(t, INT_MIN, INT_MAX))
+		return (1);
+	else
+		return (0);
+}
+
+/**
  * binary_tree_is_avl - checks if a binary tree is a valid AVL Tree
  * @tree: Pointer to the root node of the tree to check
  * Return: 1 if @tree is valid, 0 otherwise or if tree is NULL
@@ -55,9 +83,8 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 	int l_height;
 	int r_height;
 
-	if (!tree)
+	if (!tree || !is_bst(tree))
 		return (0);
-
 	if (tree->left)
 		l_height = get_tree_height(tree->left);
 	else

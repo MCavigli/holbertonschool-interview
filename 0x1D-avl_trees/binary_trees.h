@@ -26,6 +26,8 @@ typedef struct binary_tree_s avl_t;
 void binary_tree_print(const binary_tree_t *tree);
 
 int binary_tree_is_avl(const binary_tree_t *tree);
+int is_bst(const binary_tree_t *t);
+int use_min_max(const binary_tree_t *t, int min, int max);
 int get_tree_height(const binary_tree_t *t);
 int calc_height_diff(int left, int right);
 #endif /* BINARY_TREES_H */
